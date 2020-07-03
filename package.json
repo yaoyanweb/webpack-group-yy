@@ -1,0 +1,18 @@
+{
+  "name": "webpack-group-yy",
+  "version": "1.0.0",
+  "description": "集团版脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaoyanweb/webpack-group-yy.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaoyanweb/webpack-group-yy/issues"
+  },
+  "homepage": "https://github.com/yaoyanweb/webpack-group-yy#readme"
+}
