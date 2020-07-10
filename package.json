@@ -4,7 +4,10 @@
   "description": "集团版脚手架",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=test  webpack-dev-server --config ./build/webpack.dev.conf.js",
+    "build:test": "cross-env NODE_ENV=test webpack --config ./build/webpack.build.conf.js",
+    "build:prepub": "cross-env NODE_ENV=prepub webpack --config ./build/webpack.build.conf.js",
+    "build:prod": "cross-env NODE_ENV=prod webpack --config ./build/webpack.build.conf.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,47 @@
   "bugs": {
     "url": "https://github.com/yaoyanweb/webpack-group-yy/issues"
   },
-  "homepage": "https://github.com/yaoyanweb/webpack-group-yy#readme"
+  "homepage": "https://github.com/yaoyanweb/webpack-group-yy#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-plugin-import": "^1.13.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "happypack": "^5.0.1",
+    "html-withimg-loader": "^0.1.16",
+    "less": "^3.11.3",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "size-plugin": "^2.0.1",
+    "speed-measure-webpack-plugin": "^1.3.3",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dashboard": "^3.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.7"
+  }
 }
