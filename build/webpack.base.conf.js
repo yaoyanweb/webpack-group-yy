@@ -13,6 +13,9 @@ const HappyPack = require('happypack');
 // HardSourceWebpackPlugin 为模块提供中间缓存，缓存默认的存放路径是: node_modules/.cache/hard-source。
 // 配置 hard-source-webpack-plugin，首次构建时间没有太大变化，但是第二次开始，构建时间大约可以节约 80%。
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+
+// webpack-bundle-analyzer将打包后的内容束展示为方便交互的直观树状图，让我们知道我们所构建包中真正引入的内容
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = {
     //webpack 入口文件
     entry: path.join(__dirname, '../app.js'),
@@ -25,6 +28,11 @@ module.exports = {
     },
     //配置插件
     plugins: [
+        new BundleAnalyzerPlugin({
+            analyzerHost:'127.0.0.1',
+            analyzerPort: parseInt(Math.random()*10000)
+        }),
+        new HardSourceWebpackPlugin(),
         new VueLoaderPlugin(),
         //使用插件清除dist文件夹中的文件
         new CleanWebpackPlugin({
