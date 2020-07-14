@@ -9,6 +9,10 @@ const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 //  HappyPack优化 开启多线程运行loader
 const HappyPack = require('happypack');
+
+// HardSourceWebpackPlugin 为模块提供中间缓存，缓存默认的存放路径是: node_modules/.cache/hard-source。
+// 配置 hard-source-webpack-plugin，首次构建时间没有太大变化，但是第二次开始，构建时间大约可以节约 80%。
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 module.exports = {
     //webpack 入口文件
     entry: path.join(__dirname, '../app.js'),
@@ -88,6 +92,8 @@ module.exports = {
                 test: /\.css$/,
                 //使用loader
                 use: [
+                    'thread-loader',
+                    'cache-loader',
                     'style-loader',
                     'css-loader',
                 ]
@@ -96,6 +102,8 @@ module.exports = {
             }, {
                 test: /\.less$/,
                 use: [
+                    'thread-loader',
+                    'cache-loader',
                     'style-loader',
                     'css-loader',
                     'less-loader'
